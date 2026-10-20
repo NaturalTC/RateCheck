@@ -160,7 +160,9 @@ Public per-town averages are too sparse to price every ZIP code directly. Plan:
 
 - [x] Baseline: Insurance.com per-coverage averages - state minimum $621, liability-only $809, full coverage $2,430 (section 7). NAIC kept as a cross-check only.
 - [x] SDIP (assumed, labelled in the UI): Surcharge Percentage 14% per point (calibrated in section 7); Excellent Driver Discount 10%; Excellent Driver Discount Plus 17% (public 7-17% range).
-- [ ] Location: option B chosen. Pick the density cut-offs and tier multipliers (section 8).
+- [x] Location (option B), by Census population density per ZIP (people per sq mi):
+  urban 3,000+ = 1.20 (anchored to Boston +21% / Worcester +25%); suburban 1,000-3,000 = 1.00;
+  small town 250-1,000 = 0.90; rural under 250 = 0.85; unknown ZIP = 1.00. All but urban are assumed.
 - [ ] Per-insurer estimates (section 7): include in v1 or later?
 - [ ] Coverage levels: map `state-minimum` to the 2025 limits above; define what `standard` and `full` mean.
 - [ ] Years of experience, vehicle type, mileage: no sourced multipliers yet. Leave at 1 or drop from v1?
