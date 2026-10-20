@@ -32,15 +32,29 @@ MongoDB Atlas (free tier) for deployment.
 - [ ] Replace the placeholders in `server/src/rules/ma.ts`, with a source for each
 
 ## Milestone 2 - Estimate engine (backend, you write it)
+Core feature: compare insurers. Build it in two steps so each is testable.
+
+**2a. One estimate**
 - [ ] Write the tests in `server/test/estimate.test.ts` first
-- [ ] Implement `estimate()` in `server/src/estimate/estimate.ts`
-- [ ] `POST /api/estimate`: validate the body with zod, reject non-MA ZIP codes with a clear message
+- [ ] Implement `estimate()`: coverage baseline × area tier × SDIP surcharge/credit
+- [ ] Unit tests with hand-computed expected values
+
+**2b. Insurer comparison**
+- [ ] Add insurer data to `rules/ma.ts` (published averages per coverage level, with sources)
+- [ ] `compareInsurers()`: apply each insurer's factor to the 2a estimate; sort cheapest first
+- [ ] Flag eligibility limits (USAA: military families only)
+- [ ] Tests: ordering, factors per coverage level, every result carries the disclaimer
+
+**2c. API**
+- [ ] `POST /api/estimate` returns the overall estimate plus the insurer comparison
+- [ ] Validate the body with zod; reject non-MA ZIP codes with a clear message
 - [ ] Route tests with Supertest (valid input, bad ZIP, missing fields)
 
-## Milestone 3 - Estimate form (frontend, you write it)
-- [ ] Controlled form: ZIP, years licensed, driving record, vehicle type, mileage, coverage
+## Milestone 3 - Comparison UI (frontend, you write it)
+- [ ] Controlled form: ZIP, years licensed, driving record, coverage level
 - [ ] Client-side validation that mirrors the server
-- [ ] Results view: range plus a per-factor breakdown
+- [ ] Results: insurer comparison table (cheapest first) as the main view
+- [ ] "How we estimated this" panel: per-factor breakdown, assumptions labelled
 - [ ] Loading and error states; works at phone width
 - [ ] Component tests (Vitest + React Testing Library)
 
@@ -57,5 +71,4 @@ MongoDB Atlas (free tier) for deployment.
 
 ## Later
 - More states via new `rules/<state>.ts` files (Connecticut next)
-- Per-insurer relative estimates from published insurer averages (docs/research, section 7)
 - Rate limiting on `/api/estimate`

@@ -163,7 +163,7 @@ Public per-town averages are too sparse to price every ZIP code directly. Plan:
 - [x] Location (option B), by Census population density per ZIP (people per sq mi):
   urban 3,000+ = 1.20 (anchored to Boston +21% / Worcester +25%); suburban 1,000-3,000 = 1.00;
   small town 250-1,000 = 0.90; rural under 250 = 0.85; unknown ZIP = 1.00. All but urban are assumed.
-- [ ] Per-insurer estimates (section 7): include in v1 or later?
+- [x] Per-insurer comparison: in v1, as the app's core feature. Factor per insurer per coverage level = insurer average / statewide average for that level (section 7). USAA flagged as military-families only.
 - [ ] Coverage levels: map `state-minimum` to the 2025 limits above; define what `standard` and `full` mean.
 - [ ] Years of experience, vehicle type, mileage: no sourced multipliers yet. Leave at 1 or drop from v1?
 
