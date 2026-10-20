@@ -1,10 +1,13 @@
-import type { CoverageLevel, StateRules } from '../rules/types.js';
+import type { CoverageLevel, IncidentType, StateRules } from '../rules/types.js';
 
 export interface EstimateInput {
   zip: string;
-  yearsLicensed: number;
-  drivingRecordStep: number;
   coverage: CoverageLevel;
+  yearsLicensed: number;
+  /** Surchargeable incidents in the last 6 years, counted by type. */
+  incidents: Partial<Record<IncidentType, number>>;
+  /** Years since the most recent surchargeable incident (or since licensed, if none). */
+  incidentFreeYears: number;
 }
 
 export interface EstimateResult {
@@ -16,8 +19,8 @@ export interface EstimateResult {
 }
 
 // TODO(you): implement - milestone 2 in docs/PLAN.md.
-// baseline (by ZIP prefix, falling back to 'default') x each multiplier, then
-// widen into a low/high range. Make test/estimate.test.ts pass.
+// baselinePremium[coverage] x area tier (from maZipDensity) x SDIP surcharge or
+// credit, then widen into a low/high range. Make test/estimate.test.ts pass.
 export function estimate(_rules: StateRules, _input: EstimateInput): EstimateResult {
   throw new Error('Not implemented yet');
 }

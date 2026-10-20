@@ -23,13 +23,14 @@ MongoDB Atlas (free tier) for deployment.
 - [x] React + Vite client that calls the API through a dev proxy
 - [x] Docker Compose MongoDB, CI (lint, typecheck, test, build)
 
-## Milestone 1 - Data research (no code)
-- [ ] Read the MA Auto Insurance Bill of Rights; confirm allowed/banned factors
+## Milestone 1 - Data research (done)
+- [x] Confirm allowed/banned rating factors (211 CMR 79.04)
 - [x] Decision: public online sources only; non-public values become labelled assumptions
-- [ ] Find a published MA average premium to use as the baseline
-- [ ] Look up the Safe Driver Insurance Plan surcharge steps
-- [ ] Look up the 2025 MA minimum coverage limits
-- [ ] Replace the placeholders in `server/src/rules/ma.ts`, with a source for each
+- [x] Baselines per coverage level, 10 insurers' averages (Insurance.com / Quadrant)
+- [x] SDIP points (211 CMR 134.13) and assumed surcharge/discount values
+- [x] 2025 MA minimum coverage limits
+- [x] Area tiers by population density; `npm run build:zip-density -w server` builds the ZIP data
+- [x] `server/src/rules/ma.ts` filled in, every number sourced
 
 ## Milestone 2 - Estimate engine (backend, you write it)
 Core feature: compare insurers. Build it in two steps so each is testable.
