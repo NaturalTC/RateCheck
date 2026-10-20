@@ -158,7 +158,7 @@ Public per-town averages are too sparse to price every ZIP code directly. Plan:
 
 ## 6. Decisions for `ma.ts` (yours to make)
 
-- [ ] Baseline: NAIC $1,413.49 (2023, all coverages blended) or Insurance.com's per-coverage averages ($621 / $809 / $2,430)? The second maps directly onto coverage levels.
+- [x] Baseline: Insurance.com per-coverage averages - state minimum $621, liability-only $809, full coverage $2,430 (section 7). NAIC kept as a cross-check only.
 - [ ] SDIP: ~14% per point (calibrated in section 7)? Discount ~10% / Plus ~17%? Where will the UI say they're assumed?
 - [ ] Location: option B chosen. Pick the density cut-offs and tier multipliers (section 8).
 - [ ] Per-insurer estimates (section 7): include in v1 or later?
