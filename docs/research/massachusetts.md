@@ -2,22 +2,21 @@
 
 Status key: ✅ confirmed from a source · ⚠️ secondary source, verify on mass.gov · ❓ open question
 
-Retrieved 2026-10-20. mass.gov blocks automated fetching, so open the mass.gov
-links in a browser and confirm the ⚠️ items yourself before they go into `ma.ts`.
+Retrieved 2026-10-20. Regulation text is confirmed via Cornell LII's mirror (mass.gov blocks
+automated fetching). ⚠️ items come from secondary sources.
 
 ## 1. Rating factors
 
 | Factor | Allowed in MA? | Status | Source |
 |---|---|---|---|
-| Credit score / credit information | No (rating and underwriting) | ⚠️ | [Bill of Rights][bor], [Insurance Journal 2007][ij-credit] |
-| Sex, marital status, race, occupation, income, education, home ownership | No | ⚠️ | [Bill of Rights][bor] |
-| Age | No, except a discount for drivers 65+ | ⚠️ | [Bill of Rights][bor] |
-| Years of driving experience | Yes | ⚠️ | aggregator summaries |
-| Garaging location (territory) | Yes | ⚠️ | aggregator summaries |
-| Vehicle type, annual mileage | Yes | ⚠️ | aggregator summaries |
-| Driving record (SDIP) | Yes, uniform statewide system | ✅ | [211 CMR 134.10][cmr134] |
+| Credit information from a consumer report | No (rating or underwriting) | ✅ | [211 CMR 79.04(13)][cmr79-04] |
+| Sex, marital status, race, creed, national origin, religion, occupation, income, education, homeownership, gender identity, sexual orientation | No | ✅ | [211 CMR 79.04(11)][cmr79-04] |
+| Age | No, except to reduce rates for insureds 65 or older | ✅ | [211 CMR 79.04(11)][cmr79-04] |
+| Anything with a demonstrable probable effect on losses or expenses (e.g. years licensed, garaging territory, vehicle, mileage) | Yes, if not prohibited above | ✅ general rule · ⚠️ specific factors | [211 CMR 79.04(6)][cmr79-04] |
+| Driving record (SDIP) | Yes. Incidents older than 6 years can't count; each affects premiums for at most 5 years | ✅ | [211 CMR 79.04(7)][cmr79-04] |
 
-**Your task:** read the [Bill of Rights][bor] and turn every ⚠️ above into ✅ or correct it.
+Confirmed against the regulation text on Cornell LII (mass.gov blocks automated access).
+The consumer-facing summary is the [Bill of Rights][bor].
 
 ## 2. Baseline premium
 
@@ -45,21 +44,29 @@ Formula ([211 CMR 134.10][cmr134]) ✅:
 - credit factor = 1 − Excellent Driver Discount (or Excellent Driver Discount Plus)
 - total SDIP points range from 0 to 45
 
-Points per incident (mass.gov SDIP page, via search) ⚠️:
+Points per incident ([211 CMR 134.13][cmr134-13]) ✅:
 
 | Incident | Points |
 |---|---|
-| Minor traffic law violation | 2 |
+| Minor traffic law violation | 2 (a first minor violation with a non-criminal disposition gets 0) |
 | Minor at-fault accident | 3 |
 | Major at-fault accident | 4 |
 | Major traffic law violation | 5 |
+| Comprehensive claims | only if 4+ claims totalling $2,000+ (acts of God excluded) |
 
-Discount eligibility ⚠️:
-- Excellent Driver Discount: 5+ years of experience and no surchargeable incidents in the last 5 years
-- Excellent Driver Discount Plus: 6+ years and none in the last 6 years
+Definitions ([211 CMR 134.02][cmr134-02]) ✅:
+- At-fault accident: operator more than 50% at fault, with a claim payment over $1,000 above
+  the deductible (accidents on or after July 1, 2015; [134.03][cmr134-03])
+- Policy Experience Period: the six years before the policy effective date
+- Excellent Driver Discount: incident-free for more than 5 and less than 6 years
+- Excellent Driver Discount Plus: incident-free for at least 6 years
 
-❓ **Surcharge Percentage and discount amounts are not public.** They are set in each
-insurer's rate filing. The app uses a clearly labelled assumed value (section 5).
+⚠️ The major vs minor accident split (reported elsewhere as $5,000 of damage) is not in the
+sections checked.
+
+❓ **Surcharge Percentage and discount amounts have no public values.** The regulation defines
+them as percentages "assigned by the Commissioner" when rates are fixed and established;
+it states no numbers. The app uses clearly labelled assumed values (section 5).
 
 ## 4. Minimum coverage (policies issued or renewed on/after July 1, 2025) ✅
 
@@ -102,7 +109,10 @@ Not publicly available (use labelled assumptions):
 - [ ] Years of experience, vehicle type, mileage: no sourced multipliers yet. Leave at 1 or drop from v1?
 
 [bor]: https://www.mass.gov/doc/massachusettsbillofrightsforautoinsurancepdf/download
-[ij-credit]: https://amp.insurancejournal.com/news/east/2007/10/09/84100.htm
+[cmr79-04]: https://www.law.cornell.edu/regulations/massachusetts/211-CMR-79-04
+[cmr134-02]: https://www.law.cornell.edu/regulations/massachusetts/211-CMR-134-02
+[cmr134-03]: https://www.law.cornell.edu/regulations/massachusetts/211-CMR-134-03
+[cmr134-13]: https://www.law.cornell.edu/regulations/massachusetts/211-CMR-134-13
 [cmr134]: https://www.law.cornell.edu/regulations/massachusetts/211-CMR-134-10
 [ac-2026]: https://agencychecklists.com/2026/03/17/auto-insurance-costs-climb-in-massachusetts-still-under-national-benchmark-80522/
 [ac-naic]: https://agencychecklists.com/2026/03/04/five-items-insurance-professionals-should-know-from-the-naics-new-auto-insurance-database-report-80296/
