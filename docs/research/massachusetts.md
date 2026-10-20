@@ -159,7 +159,7 @@ Public per-town averages are too sparse to price every ZIP code directly. Plan:
 ## 6. Decisions for `ma.ts` (yours to make)
 
 - [x] Baseline: Insurance.com per-coverage averages - state minimum $621, liability-only $809, full coverage $2,430 (section 7). NAIC kept as a cross-check only.
-- [ ] SDIP: ~14% per point (calibrated in section 7)? Discount ~10% / Plus ~17%? Where will the UI say they're assumed?
+- [x] SDIP (assumed, labelled in the UI): Surcharge Percentage 14% per point (calibrated in section 7); Excellent Driver Discount 10%; Excellent Driver Discount Plus 17% (public 7-17% range).
 - [ ] Location: option B chosen. Pick the density cut-offs and tier multipliers (section 8).
 - [ ] Per-insurer estimates (section 7): include in v1 or later?
 - [ ] Coverage levels: map `state-minimum` to the 2025 limits above; define what `standard` and `full` mean.
