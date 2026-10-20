@@ -57,5 +57,5 @@ MongoDB Atlas (free tier) for deployment.
 
 ## Later
 - More states via new `rules/<state>.ts` files (Connecticut next)
-- Per-insurer estimates if rate filing data becomes available
+- Per-insurer relative estimates from published insurer averages (docs/research, section 7)
 - Rate limiting on `/api/estimate`

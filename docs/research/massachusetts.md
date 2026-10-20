@@ -101,14 +101,73 @@ Not publicly available (use labelled assumptions):
 - Territory relativities for private passenger auto
 - Per-insurer prices
 
+## 7. Insurance.com averages (public, Quadrant Information Services data)
+
+Source: [Insurance.com MA guide][ic-guide], retrieved 2026-10-20. Sample driver: 40-year-old,
+Honda Accord LX, clean record, 12-mile commute. Full coverage = 100/300/100 limits, $500 deductibles.
+
+Statewide: full coverage **$2,430**/yr · liability-only (50/100/50) $809 · state minimum $621.
+
+Driving-record increases over the $2,430 average:
+
+| Profile | Premium | Increase |
+|---|---|---|
+| At-fault accident | $3,771 | +55% |
+| Careless driving | $3,279 | +35% |
+| Claims | $2,877 | +18% |
+| DUI | $4,497 | +85% |
+| Reckless driving | $4,226 | +74% |
+| Speeding | $3,166 | +30% |
+| Texting ticket | $3,109 | +28% |
+
+**Calibrating the assumed Surcharge Percentage:** a major at-fault accident is 4 SDIP points and
+shows +55% (≈14% per point); speeding is a minor violation, 2 points, at +30% (≈15% per point).
+So ~14% per point fits published data. Still an assumption (one sample driver, insurer averages).
+
+Average by insurer (annual):
+
+| Insurer | State minimum | Liability-only | Full coverage |
+|---|---|---|---|
+| Plymouth Rock Assurance | $446 | $576 | $1,719 |
+| GEICO | $446 | $643 | $1,817 |
+| Safety Insurance | $380 | $690 | $2,189 |
+| Progressive | $907 | $1,024 | $2,490 |
+| Amica | $504 | $637 | $2,491 |
+| Arbella Insurance | $724 | $933 | $2,807 |
+| Farmers | $549 | $758 | $2,807 |
+| Travelers | $897 | $1,115 | $2,962 |
+| Allstate | $951 | $1,216 | $3,388 |
+| USAA | $397 | $492 | $1,658 (military families only) |
+
+This enables a per-insurer *relative* estimate: insurer factor = insurer average ÷ statewide
+average for the chosen coverage level. Label it "typical for a sample driver", not a quote.
+
+Location data points (full coverage): Boston $2,937 (+21%), Worcester $3,036 (+25%).
+⚠️ The [cheapest-insurance page][ic-cheapest]'s "most/least expensive cities" table is internally
+inconsistent (its "most expensive" values are lower than its "least expensive" ones). Don't use it.
+
+## 8. Area tiers (option B)
+
+Public per-town averages are too sparse to price every ZIP code directly. Plan:
+1. Assign each MA ZIP code a tier from a public proxy: population density from the U.S.
+   Census (ZCTA data), e.g. rural / suburban / urban / dense urban.
+2. Set tier multipliers from the published anchors above (dense urban ≈ 1.2–1.25 from
+   Boston/Worcester; others assumed and labelled).
+3. Unknown or unmatched ZIP codes fall back to 1.0 (statewide average).
+4. Show the tier and its multiplier in the results breakdown.
+
 ## 6. Decisions for `ma.ts` (yours to make)
 
-- [ ] Baseline: use $1,413.49 (2023) as `default`? Label the year in the UI?
-- [ ] SDIP: what assumed Surcharge Percentage and discount will you use, and where will the UI say they're assumed?
+- [ ] Baseline: NAIC $1,413.49 (2023, all coverages blended) or Insurance.com's per-coverage averages ($621 / $809 / $2,430)? The second maps directly onto coverage levels.
+- [ ] SDIP: ~14% per point (calibrated in section 7)? Discount ~10% / Plus ~17%? Where will the UI say they're assumed?
+- [ ] Location: option B chosen. Pick the density cut-offs and tier multipliers (section 8).
+- [ ] Per-insurer estimates (section 7): include in v1 or later?
 - [ ] Coverage levels: map `state-minimum` to the 2025 limits above; define what `standard` and `full` mean.
 - [ ] Years of experience, vehicle type, mileage: no sourced multipliers yet. Leave at 1 or drop from v1?
 
 [bor]: https://www.mass.gov/doc/massachusettsbillofrightsforautoinsurancepdf/download
+[ic-guide]: https://www.insurance.com/auto-insurance/massachusetts-car-insurance-guide/
+[ic-cheapest]: https://www.insurance.com/auto-insurance/cheapest-car-insurance-in-massachusetts/
 [cmr79-04]: https://www.law.cornell.edu/regulations/massachusetts/211-CMR-79-04
 [cmr134-02]: https://www.law.cornell.edu/regulations/massachusetts/211-CMR-134-02
 [cmr134-03]: https://www.law.cornell.edu/regulations/massachusetts/211-CMR-134-03
