@@ -25,7 +25,7 @@ MongoDB Atlas (free tier) for deployment.
 
 ## Milestone 1 - Data research (no code)
 - [ ] Read the MA Auto Insurance Bill of Rights; confirm allowed/banned factors
-- [ ] Email the MA Division of Insurance asking how to access private passenger auto rate filings
+- [x] Decision: public online sources only; non-public values become labelled assumptions
 - [ ] Find a published MA average premium to use as the baseline
 - [ ] Look up the Safe Driver Insurance Plan surcharge steps
 - [ ] Look up the 2025 MA minimum coverage limits
